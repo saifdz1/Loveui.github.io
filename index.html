@@ -1,0 +1,88 @@
+<html style="background-color: #273c75;">
+
+<head>
+    <title>Love U</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+}
+
+#myButton {
+    transition: top 0.5s ease, left 0.5s ease;
+    -webkit-transition: top 0.5s ease, left 0.5s ease;
+}
+
+img {
+    left: 253px;
+    top: 200px;
+    max-width: 100%;
+    height: auto;
+    display: none;
+    margin: 0 auto;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+  
+</style>
+
+<body>
+
+
+    <div style="color: white; position: absolute; left: 30%; top: 15%;">
+        <h1> Ibtihal Do you wanna go out with me ? </h1>
+    </div>
+    <div>
+        <button id="yesButton" style="color: white; font-size: 30px; background-color: #ff007f; position: absolute; top: 400px; left: 480px; width: 100px; height: 50px; border-radius: 35px; font-size: 18px; " onclick="showImage()"> Yes </button>
+        <img id="hiddenImage" src="mochi-hug.gif" alt="Mochi">
+        <button id="noButton" style="color: white; font-size: 30px; background-color: #ff007f; position: absolute; top: 400px; left: 600px; width: 100px; height: 50px; border-radius: 35px; font-size: 18px;" onclick="window.location.href = 'https://www.youtube.com/watch?v=C0cgGRDD2Mw&ab_channel=ChebHichem-Tgv-%D8%A7%D9%84%D8%B4%D8%A7%D8%A8%D9%87%D8%B4%D8%A7%D9%85;'">NO</button>
+    </div>
+
+    <script>
+        var myButton = document.getElementById("noButton");
+        var xPos = "600px";
+        var yPos = "400px";
+        var x = 600;
+        var y = 400;
+
+        var dx;
+        var dy;
+
+        onmousemove = function(e) {
+            dx = x - e.clientX;
+            dy = y - e.clientY;
+            if (Math.sqrt(dx * dx + dy * dy) < 100) {
+                x += Math.random() * 100 - 50;
+                y += Math.random() * 100 - 50;
+                xPos = x.toString() + "px";
+                yPos = y.toString() + "px";
+                myButton.style.left = xPos;
+                myButton.style.top = yPos;
+            }
+        }
+
+        function showImage() {
+            const buttons = document.querySelectorAll('button');
+            const image = document.getElementById('hiddenImage');
+
+            buttons.forEach(button => {
+                button.style.display = 'none';
+            });
+
+            image.style.display = 'block';
+        }
+    </script>
+</body>
+
+</html>
